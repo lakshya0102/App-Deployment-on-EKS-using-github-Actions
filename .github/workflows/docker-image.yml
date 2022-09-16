@@ -17,5 +17,5 @@ jobs:
     - name: Build the Docker image & Publish
       run: |
           echo "${{ secrets.DOCKERPASS }}" | docker login -u "lakshya0102" --password-stdin
-          docker build . --file Dockerfile -t Lakshya
-          docker push Lakshya
+          docker build . --file Dockerfile -t lakshya
+          docker push lakshya
