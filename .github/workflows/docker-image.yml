@@ -18,4 +18,4 @@ jobs:
       run: |
           docker build . --file Dockerfile -t lakshya
           echo "${{ secrets.DOCKERPASS }}" | docker login -u "lakshya0102" --password-stdin docker.io
-          docker push docker.io/library/lakshya
+          docker images
