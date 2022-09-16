@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image & Publish
+      working-directory: lakshya_task
+      run: |
+          echo "${{ secrets.DOCKERPASS }}" | docker login -u "lakshya0102 --password-stdin
+          docker build . --file Dockerfile --tag Lakshya:$(date +%s)
+          docker push Lakshya:$(date +%s)
