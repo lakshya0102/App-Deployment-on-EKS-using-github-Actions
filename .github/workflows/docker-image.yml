@@ -16,6 +16,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image & Publish
       run: |
-          docker build . --file Dockerfile -t lakshya
+          docker build . --file Dockerfile -t lakshya0102/lakshya0102
           echo "${{ secrets.DOCKERPASS }}" | docker login -u "lakshya0102" --password-stdin docker.io
           docker images
+          docker push lakshya0102/lakshya0102
