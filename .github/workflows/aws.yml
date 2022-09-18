@@ -35,8 +35,8 @@ jobs:
       run: |
         echo "${{ secrets.DOCKERPASS }}" | docker login -u "lakshya0102" --password-stdin docker.io
         docker pull lakshya0102/lakshya0102:latest
-        aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 974385115063.dkr.ecr.us-west-2.amazonaws.com
+        aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin $aws-account-id.dkr.ecr.us-west-2.amazonaws.com
         docker images
-        docker tag lakshya0102/lakshya0102:latest 974385115063.dkr.ecr.us-west-2.amazonaws.com/lakshya0102/lakshya0102:latest
+        docker tag lakshya0102/lakshya0102:latest $aws-account-id.dkr.ecr.us-west-2.amazonaws.com/lakshya0102/lakshya0102:latest
         docker images
       
