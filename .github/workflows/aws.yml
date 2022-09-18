@@ -34,7 +34,7 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       run: |
         echo "${{ secrets.DOCKERPASS }}" | docker login -u "lakshya0102" --password-stdin docker.io
-        docker pull lakshya0102:latest
+        docker pull lakshya0102/lakshya0102:latest
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:lakshya0102:latest
     
 
