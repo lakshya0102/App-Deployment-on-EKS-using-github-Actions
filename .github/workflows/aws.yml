@@ -31,13 +31,10 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: lakshya_ecr
+        IMAGE_TAG: lakshya0102/lakshya0102:latest
       
       run: |
         echo "${{ secrets.DOCKERPASS }}" | docker login -u "lakshya0102" --password-stdin docker.io
         docker pull lakshya0102/lakshya0102:latest
-        aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 974385115063.dkr.ecr.us-west-2.amazonaws.com
         docker images
-        docker tag lakshya0102/lakshya0102:latest 974385115063.dkr.ecr.us-west-2.amazonaws.com/lakshya0102/lakshya0102:latest
-        docker images
-        docker push ***.dkr.ecr.***.amazonaws.com/lakshya0102/lakshya0102:latest
-      
+        docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG
