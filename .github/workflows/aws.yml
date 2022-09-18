@@ -37,4 +37,4 @@ jobs:
         docker pull lakshya0102/lakshya0102:latest
         docker logout
         aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 974385115063.dkr.ecr.us-west-2.amazonaws.com
-      
+        docker images
