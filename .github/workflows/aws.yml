@@ -19,23 +19,17 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        
         aws-region: ${{ secrets.AWS_REGION }}
 
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
 
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: lakshya_ecr
-        IMAGE_TAG: lakshya0102/lakshya0102:latest
       
       run: |
         echo "${{ secrets.DOCKERPASS }}" | docker login -u "lakshya0102" --password-stdin docker.io
         docker pull lakshya0102/lakshya0102:latest
         docker images
-        docker tag lakshya0102/lakshya0102:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 974385115063.dkr.ecr.us-west-2.amazonaws.com
+        docker tag lakshya0102:latest 974385115063.dkr.ecr.us-west-2.amazonaws.com/lakshya0102:latest
+        docker images
+        docker push 974385115063.dkr.ecr.us-west-2.amazonaws.com/lakshya0102:latest
