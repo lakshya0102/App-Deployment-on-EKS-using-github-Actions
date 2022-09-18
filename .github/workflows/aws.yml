@@ -39,4 +39,5 @@ jobs:
         docker images
         docker tag lakshya0102/lakshya0102:latest 974385115063.dkr.ecr.us-west-2.amazonaws.com/lakshya0102/lakshya0102:latest
         docker images
+        docker push ***.dkr.ecr.***.amazonaws.com/lakshya0102/lakshya0102:latest
       
