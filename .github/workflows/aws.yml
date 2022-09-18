@@ -35,7 +35,7 @@ jobs:
       run: |
         echo "${{ secrets.DOCKERPASS }}" | docker login -u "lakshya0102" --password-stdin docker.io
         docker pull lakshya0102/lakshya0102:latest
-        docker push 974385115063.dkr.ecr.us-west-2.amazonaws.com/lakshya_ecr:lakshya0102
+        docker images
     
 
         
