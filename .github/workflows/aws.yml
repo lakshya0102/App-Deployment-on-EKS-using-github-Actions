@@ -37,5 +37,5 @@ jobs:
         echo "${{ secrets.DOCKERPASS }}" | docker login -u "lakshya0102" --password-stdin docker.io
         docker pull lakshya0102/lakshya0102:latest
         docker images
-        docker tag lakshya0102/lakshya0102:latest $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG
-        docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG
+        docker tag lakshya0102/lakshya0102:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
