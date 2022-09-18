@@ -33,8 +33,8 @@ jobs:
         ECR_REPOSITORY: lakshya_ecr
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        docker pull lakshya0102
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:lakshya0102
+        docker pull lakshya0102:latest
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:lakshya0102:latest
     
 
         
