@@ -28,10 +28,6 @@ jobs:
 
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: lakshya_ecr
-        IMAGE_TAG: ${{ github.sha }}
       run: |
         echo "${{ secrets.DOCKERPASS }}" | docker login -u "lakshya0102" --password-stdin docker.io
         docker pull lakshya0102/lakshya0102:latest
