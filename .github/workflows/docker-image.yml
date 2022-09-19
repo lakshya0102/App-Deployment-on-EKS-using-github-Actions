@@ -65,7 +65,9 @@ jobs:
       id: build-image
       
       run: |
-      
+        aws ecr batch-delete-image \
+               --repository-name lakshya0102 \
+               --image-ids imageTag=$IMAGE_TAG
         docker pull lakshya0102/lakshya0102:latest
         docker tag lakshya0102/lakshya0102:latest $REGISTRY/$REPOSITORY:$IMAGE_TAG 
         docker images
