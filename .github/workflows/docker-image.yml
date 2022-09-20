@@ -77,8 +77,5 @@ jobs:
 
     - name: deployment to eks -
       run: |
-       eksctl delete fargateprofile \
-              --cluster my-cluster \
-              --name my-fargate-profile \
-              --namespace my-kubernetes-namespace \
-              --labels key=value
+          
+         eksctl delete fargateprofile  --name my-profile --cluster my-cluster
