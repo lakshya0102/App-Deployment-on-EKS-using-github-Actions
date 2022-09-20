@@ -4,7 +4,8 @@ on:
   push:
     branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
+  
 
 
 
@@ -12,9 +13,13 @@ jobs:
   
 
   build:
-
+    if: |
+     "contains(github.event.head_commit.message, 'BUILD_CONTAINER_IMAGE')" &&
+     github.event.pull_request.merged == true
+         
+    
     runs-on: ubuntu-latest
-
+    
     steps:
        - name: checkout
          uses: actions/checkout@v3
@@ -76,7 +81,7 @@ jobs:
         docker tag lakshya0102/lakshya0102:latest $REGISTRY/$REPOSITORY:$IMAGE_TAG 
         docker images
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
-        cat /github/home/.kube/config
+      
       
            
 
