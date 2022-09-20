@@ -12,7 +12,7 @@ env:
            DOCKER_TAG: latest
            K8S_NAMESPACE: dev_namespace
            K8S_DEPLOYMENT: dev_deployment
-           EKS_CLUSTER_NAME: dev_cluste
+           EKS_CLUSTER_NAME: Lakshya-cluster
 
 jobs:
   
