@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment on eks 
+  labels:
+    app: Lakshya app
+spec:
+  selector:
+    matchLabels:
+        app: Lakshya app
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: Lakshya app
+    spec:
+      containers:
+        - name: Lakshya app
+          image: $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          imagePullPolicy: Always
