@@ -75,7 +75,7 @@ jobs:
         docker images
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
-    - name: deployment to eks
+    - name: deployment to eks -
       run: |
          eksctl create cluster \
            --name my-cluster \
