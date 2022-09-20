@@ -76,4 +76,4 @@ jobs:
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
     - name: deployment to eks -
       run: |
-          eksctl delete fargateprofile  --name my-profile --cluster my-cluster
+          eksctl delete fargateprofile  --name my-fargate-profile --cluster my-cluster
