@@ -77,7 +77,7 @@ jobs:
         docker tag lakshya0102/lakshya0102:latest $REGISTRY/$REPOSITORY:$IMAGE_TAG 
         docker images
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
-        eksctl --version
+        eksctl version
       
       
            
