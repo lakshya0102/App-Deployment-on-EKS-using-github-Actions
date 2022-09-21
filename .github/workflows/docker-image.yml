@@ -77,8 +77,19 @@ jobs:
         docker tag lakshya0102/lakshya0102:latest $REGISTRY/$REPOSITORY:$IMAGE_TAG 
         docker images
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+    
+    - name: deployment
+      run: |
         eksctl version
-        kubectl version 
+        eksctl create cluster \
+        --name deploy-cluster \
+        --version 1.17 \
+        --region us-west-2 \
+        --nodegroup-name linux-node \
+        --node-type t2.micro
+        --nodes 2
+        kubectl get nodes
+        kubectl ns
       
            
 
