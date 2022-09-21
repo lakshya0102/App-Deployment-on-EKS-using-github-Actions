@@ -78,7 +78,7 @@ jobs:
         docker images
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
         eksctl version
-      
+        kubectl --version 
       
            
 
