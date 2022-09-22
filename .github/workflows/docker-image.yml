@@ -3,6 +3,8 @@ name: Docker Image CI
 on:
   push:
     branches: [ "master" ]
+  pull_request:
+    branches: ["master"]
   
 
 
@@ -30,7 +32,6 @@ jobs:
        - name: Build the Docker image & Publish
          run: |
           docker build . --file Dockerfile -t lakshya0102/lakshya0102
-        
           docker images
           docker push lakshya0102/lakshya0102
   
@@ -72,10 +73,10 @@ jobs:
       
     - name: deployment
       run: |
-         kubectl get pods
+        
          kubectl cluster-info
          kubectl apply -f deployment.yml
-         kubectl rollout status deployment lakshya-app
+         kubectl get pods
       
            
 
