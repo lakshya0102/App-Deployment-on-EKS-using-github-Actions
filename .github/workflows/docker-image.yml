@@ -71,7 +71,7 @@ jobs:
     - name: update kubeconfig
       run: aws eks update-kubeconfig --name my-cluster --region us-west-2
       
-    - name: deployment
+    - name: deployment to eks
       run: |
         
          kubectl cluster-info
