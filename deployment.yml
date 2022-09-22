@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment on eks 
+  name: example.com 
   labels:
-    app: Lakshya app
+    app: Lakshya_app
 spec:
   selector:
     matchLabels:
-        app: Lakshya app
+        app: Lakshya_app
   replicas: 3
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: Lakshya app
+        app: Lakshya_app
     spec:
       containers:
-        - name: Lakshya app
+        - name: Lakshya_app
           image: lakshya0102/lakshya0102:latest
           ports:
             - containerPort: 80
