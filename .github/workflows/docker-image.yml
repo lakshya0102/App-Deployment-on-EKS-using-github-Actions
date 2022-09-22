@@ -81,15 +81,9 @@ jobs:
     - name: deployment
       run: |
         eksctl version
-        eksctl create cluster \
-        --name deploy-cluster \
-        --version 1.17 \
-        --region us-west-2 \
-        --nodegroup-name linux-node \
-        --node-type t2.micro
-        --nodes 2
-        kubectl get nodes
-        kubectl ns
+        eksctl create cluster --name my-cluster --region us-west-2
+        kubectl get pods -A -o wide
+        kubectl apply -f deployment.yaml
       
            
 
