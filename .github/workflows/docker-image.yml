@@ -86,6 +86,7 @@ jobs:
       run: |
          kubectl get pods
          kubectl cluster-info
+         kubectl apply -f deployment.yml
       
            
 
